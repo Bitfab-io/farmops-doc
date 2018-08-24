@@ -41,13 +41,14 @@ Set up and run a Raspberry Pi for using it with a Bitfab Core 3D printer. This i
 	5. Burn the image in the SD card by clicking Flash
 * Configure the wifi connection
 	1. Open the SD card directory
-	2. Open the `octopi-network.txt` with the text editor. *Important: Do not use WordPad (Windows) or TextEdit (MacOS X)* ([source](https://octoprint.org/download/))
-	4. Change the network settings. Leave the quotation marks.
+	2. Open the `octopi-wpa-supplicant.txt` with the text editor. *Important: Do not use WordPad (Windows) or TextEdit (MacOS X)* ([source](https://octoprint.org/download/))
+	4. Change the network settings. Uncomment WPA/WPA2 network. Leave the quotation marks. (ask for help if you don't know what network credentials to use).
 
       ## WPA/WPA2 secured
-      iface wlan0-octopi inet manual
-      wpa-ssid "wifi name"
-      wpa-psk "wifi password"
+      network={
+        ssid="network name"
+        psk="password"
+      }
 
 * Connect to the Raspberry Pi
 	1. Insert the SD card in the Raspberry Pi
@@ -57,11 +58,11 @@ Set up and run a Raspberry Pi for using it with a Bitfab Core 3D printer. This i
 		* Default username is `pi`
 		* Default password is `raspberry`
 		* Therefore you have to run the following command in the terminal: `ssh pi@octopi.local` and give the password `raspberry`
-	4. Change user password. Use Bitfab password rules for the printers (ask tutor if you need help).
+	4. Change user password. Use Bitfab password rules for the printers (ask for help if you don't know what password to choose).
 		1. Run `sudo raspi-config` ([raspi-config documentation](https://www.raspberrypi.org/documentation/configuration/raspi-config.md))
 		2. Open `1 Change User Password`
 		3. etc
-	5. Change Raspberry Pi hostname for the printer identifier. Use Bitfab identifier rules for the printers (ask tutor if you need help).
+	5. Change Raspberry Pi hostname for the printer identifier. Use Bitfab identifier rules for the printers (ask for help if you don't know what hostname to choose).
 		1. Run `sudo raspi-config` ([raspi-config documentation](https://www.raspberrypi.org/documentation/configuration/raspi-config.md))
 		2. Open `2 Network Options`
 		3. etc
